@@ -2,7 +2,7 @@ var express = require('express')
 var path = require('path')
 const history = require('connect-history-api-fallback')
 var serveStatic = require('serve-static')
-app = express()
+const app = express()
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 app.use(history({
     disableDotRule: true,
