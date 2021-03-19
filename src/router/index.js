@@ -91,33 +91,33 @@ else if((window.location.pathname == '/report') && ((localStorage.user.toLowerCa
   }
 }
 
-if(window.location.pathname === '/instruction'){
-  router.push({path: '/instruction'})
-}
-if(window.location.pathname === '/shop'){
-  router.push({path: '/shop'})
-}
-if(window.location.pathname === '/data'){
-  router.push({path: '/data'})
-}
-if(window.location.pathname === '/trekking'){
-  router.push({path: '/trekking'})
-}
-if(window.location.pathname === '/history'){
-  router.push({path: '/history'})
-}
-if(window.location.pathname === '/'){
-  router.push({path: '/'})
-}
-if(window.location.pathname === '/register'){
-  router.push({path: '/register'})
-}
-if(window.location.pathname === '/auth'){
-  router.push({path: '/auth'})
-}
-if(window.location.pathname === '/restore'){
-  router.push({path: '/restore'})
-}
+// if(window.location.pathname === '/instruction'){
+//   router.push({path: '/instruction'})
+// }
+// if(window.location.pathname === '/shop'){
+//   router.push({path: '/shop'})
+// }
+// if(window.location.pathname === '/data'){
+//   router.push({path: '/data'})
+// }
+// if(window.location.pathname === '/trekking'){
+//   router.push({path: '/trekking'})
+// }
+// if(window.location.pathname === '/history'){
+//   router.push({path: '/history'})
+// }
+// if(window.location.pathname === '/'){
+//   router.push({path: '/'})
+// }
+// if(window.location.pathname === '/register'){
+//   router.push({path: '/register'})
+// }
+// if(window.location.pathname === '/auth'){
+//   router.push({path: '/auth'})
+// }
+// if(window.location.pathname === '/restore'){
+//   router.push({path: '/restore'})
+// }
 
 //старый роутинг
 // if(localStorage.token){
