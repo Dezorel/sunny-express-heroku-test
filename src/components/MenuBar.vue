@@ -150,6 +150,7 @@ button{
 .hide{
   transition: 0.5s;
   opacity: 0;
+  display: none;
 }
 .menu-navigation.hide{
   padding-top: 0px;
