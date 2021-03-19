@@ -15,16 +15,19 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    mode: 'history',
     path: '/auth',
     name: 'Auth',
     component: Auth
   },
   {
+    mode: 'history',
     path: '/instruction',
     name: 'Instruction',
     component: Instruction
   },
   {
+    mode: 'history',
     path: '/shop',
     name: 'Shop',
     // route level code-splitting
@@ -33,26 +36,31 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Shop.vue')
   },
   {
+    mode: 'history',
     path: '/data',
     name: 'Data',
     component: Data
   },
   {
+    mode: 'history',
     path: '/trekking',
     name: 'Trekking',
     component: Trekking
   },
   {
+    mode: 'history',
     path: '/history',
     name: 'History',
     component: History
   },
   {
+    mode: 'history',
     path: '/',
     name: 'User',
     component: MyAccount
   },
   {
+    mode: 'history',
     path: '/report',
     name: 'Report',
     component: Report
@@ -63,11 +71,13 @@ const routes = [
     component: Temp
   },
   {
+    mode: 'history',
     path: '/register',
     name: 'Register',
     component: Register
   },
   {
+    mode: 'history',
     path: '/restore',
     name: 'RestorePass',
     component: RestorePass
