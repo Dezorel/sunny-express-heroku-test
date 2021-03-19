@@ -1,28 +1,10 @@
-const express = require('express')
-const compression = require('compression')
+var express = require('express')
+var path = require('path')
 const history = require('connect-history-api-fallback')
-
-const staticMiddleWare = express.static('dist')
-
-const app = express()
-app.use(compression())
-app.use(staticMiddleWare)
+var serveStatic = require('serve-static')
+app = express()
 app.use(history())
-app.use(staticMiddleWare)
-
-app.use(express.static('dist'))
-app.get('*.js', function (req, res, next) {
-    req.url = req.url + '.gz'
-    res.set('Content-Encoding', 'gzip')
-    next()
-})
-
-app.get('*.js', function (req, res, next) {
-    req.url = req.url + '.gz'
-    res.set('Content-Encoding', 'gzip')
-    next()
-})
-
-app.set('port', (process.env.PORT || 3333))
-app.listen(app.get('port'), () =>
-    console.log('Server @', app.get('port')))
+app.use('/', serveStatic(path.join(__dirname, '/dist')))
+var port = process.env.PORT || 8080
+app.listen(port)
+console.log('server started ' + port)
