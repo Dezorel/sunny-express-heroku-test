@@ -45,7 +45,7 @@
           <MenuItem name="Ввод данных" imageName="pen-square"></MenuItem>
         </router-link>
         <!--Трекинг посылок-->
-        <router-link v-if="user.toLowerCase() != 'operator'" to="/trekking">
+        <router-link v-if="user.toLowerCase() != 'operator'" to="/tracking">
           <MenuItem name="Трекинг посылок" imageName="boxes"></MenuItem>
         </router-link>
         <!--История посылок-->
