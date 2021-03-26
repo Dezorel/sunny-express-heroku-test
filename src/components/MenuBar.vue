@@ -3,14 +3,29 @@
     <button class="btn btn-sm" @click="isActive = !isActive"><i :class="isActive? 'fas fa-times' : 'fas fa-bars'" style="color: #000000; font-size: 20px"></i></button>
 <!--    <button class="btn btn-sm btn-light" @click="isActive = !isActive"><i class="fas fa-bars"></i></button>-->
     <div id="nav">
-    <div class="menu-navigation col-lg-2 col-md-3 col-sm-4 col-7" align="left" :class="isActive ? 'active' : 'hide' ">
+    <div class="menu-navigation col-xl-2 col-lg-3 col-md-3 col-sm-4 col-7" align="left" :class="isActive ? 'active' : 'hide' ">
       <div v-if="isActive">
-        <p v-if="fName" class="title" style="margin-top: 24px">{{fName}} {{lName}}</p>
-        <p v-else class="title" style="margin-top: 24px">Гость</p>
-        <p class="element">
-          Post ID: <span v-if="remoteAddress" class="unactive">{{ remoteAddress }}</span>
-          <span v-else class="unactive">Вы зашли как гость!</span>
-        </p>
+        <div v-if="widthWindow > 400" class="row">
+          <div class="col-3">
+            <i class="fa fa-user" style="margin-top: 24px; font-size: 57px; color: black"></i>
+          </div>
+          <div class="col">
+            <p v-if="fName" class="title" style="margin-top: 24px">{{fName}} {{lName}}</p>
+            <p v-else class="title" style="margin-top: 24px">Гость</p>
+            <p class="element">
+              Post ID: <span v-if="remoteAddress" class="unactive">{{ remoteAddress }}</span>
+              <span v-else class="unactive">Вы зашли как гость!</span>
+            </p>
+          </div>
+        </div>
+        <div v-else>
+          <p v-if="fName" class="title" style="margin-top: 24px">{{fName}} {{lName}}</p>
+          <p v-else class="title" style="margin-top: 24px">Гость</p>
+          <p class="element">
+            Post ID: <span v-if="remoteAddress" class="unactive">{{ remoteAddress }}</span>
+            <span v-else class="unactive">Вы зашли как гость!</span>
+          </p>
+        </div>
 
         <p v-if="user.toLowerCase() != 'operator'" class="group" style="margin-top: 32px;">Информация</p>
         <!--Инструкция-->
@@ -80,6 +95,7 @@ export default {
       user: localStorage.user,
       fName: localStorage.fName,
       lName: localStorage.lName,
+      widthWindow: window.innerWidth,
     }
   },
   created(){
