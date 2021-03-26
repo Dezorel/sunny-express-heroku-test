@@ -28,60 +28,55 @@
           </div>
 
           <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-4">
               <span>Item Type</span>  <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{itemType}}</p>
             </div>
-            <div class="col-sm-5 offset-sm-2" align="left">
+            <div class="col-sm-4" align="left">
               <span>Location</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p :class="(status == 'Создано') ? 'expected' : '' || (status == 'Ошибка') ? 'received' : '' || (status == 'Оплачено') ? 'closed' : ''
                     || (status == 'Ожидает оплаты') ? 'waitMoney' : '' || (status == 'Ожидает отправки') ? 'waitMoney' : ''
                     || (status == 'Отправлено') ? 'waitMoney' : ''">{{status}}</p>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-4">
               <span>Track Number</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{trackNumber}}</p>
             </div>
-            <div class="col-sm-5 offset-sm-2" align="left">
-              <span>Amount</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
-              <p>{{amount}} шт.</p>
-            </div>
           </div>
           <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-4">
               <span>Item Note</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{link}}</p>
             </div>
-            <div class="col-sm-5 offset-sm-2" align="left">
+            <div class="col-sm-4" align="left">
+              <span>Amount</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
+              <p>{{amount}} шт.</p>
+            </div>
+            <div class="col-sm-4" align="left">
               <span>Price</span>  <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{price}} {{currency}}</p>
             </div>
           </div>
-
           <div class="row">
-            <div v-if="weight" class="col-sm-5">
+            <div v-if="weight" class="col-sm-4">
               <span>Weight</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{weight}} kg</p>
             </div>
-            <div v-if="length" class="col-sm-5 offset-sm-2" align="left">
+            <div v-if="length" class="col-sm-4" align="left">
               <span>Length</span>  <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{length}} cm</p>
             </div>
-          </div>
-          <div class="row">
-            <div v-if="width" class="col-sm-5">
+            <div v-if="width" class="col-sm-4">
               <span>Width</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{width}} cm</p>
             </div>
-            <div v-if="height" class="col-sm-5 offset-sm-2" align="left">
+          </div>
+          <div class="row">
+            <div v-if="height" class="col-sm-4" align="left">
               <span>Height</span>  <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{height}} cm</p>
             </div>
-          </div>
-          <div class="row">
-            <div v-if="deliveryPrice" class="col-sm-5">
+            <div v-if="deliveryPrice" class="col-sm-4">
               <span>Delivery Price</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
               <p>{{deliveryPrice}} USD</p>
             </div>
@@ -90,40 +85,67 @@
             <div class="col">
               <span>Photo</span> <i class="fa fa-info-circle" data-toggle="tooltip" title="Какая-то очень важная информация об этой функции"></i>
 
-              <div class="row row-cols-1 row-cols-lg-4 g-4" align="center">
-                <div class="col">
-                  <div class="card photo-card h-100">
-                    <img data-mdb-toggle="modal"
-                         data-mdb-target="#exampleModal"
-                         src="../assets/logo.svg"
-                         class="card-img-top"/>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card photo-card h-100">
-                    <img data-mdb-toggle="modal"
-                         data-mdb-target="#exampleModal"
-                         src="../assets/logo.svg"
-                         class="card-img-top"/>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card photo-card h-100">
-                    <img data-mdb-toggle="modal"
-                         data-mdb-target="#exampleModal"
-                         src="../assets/logo.svg"
-                         class="card-img-top"/>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card photo-card h-100">
-                    <img data-mdb-toggle="modal"
-                         data-mdb-target="#exampleModal"
-                         src="../assets/logo.svg"
-                         class="card-img-top"/>
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                    >
+                      All photos
+                    </button>
+                  </h2>
+                  <div
+                      id="collapseOne"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="headingOne"
+                      data-mdb-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <div class="row row-cols-1 row-cols-lg-4 g-4" align="center">
+                        <div class="col">
+                          <div class="card photo-card h-100">
+                            <img data-mdb-toggle="modal"
+                                 data-mdb-target="#exampleModal"
+                                 src="../assets/logo.svg"
+                                 class="card-img-top"/>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card photo-card h-100">
+                            <img data-mdb-toggle="modal"
+                                 data-mdb-target="#exampleModal"
+                                 src="../assets/logo.svg"
+                                 class="card-img-top"/>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card photo-card h-100">
+                            <img data-mdb-toggle="modal"
+                                 data-mdb-target="#exampleModal"
+                                 src="../assets/logo.svg"
+                                 class="card-img-top"/>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card photo-card h-100">
+                            <img data-mdb-toggle="modal"
+                                 data-mdb-target="#exampleModal"
+                                 src="../assets/logo.svg"
+                                 class="card-img-top"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+
             </div>
 
 
