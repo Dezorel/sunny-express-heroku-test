@@ -158,7 +158,7 @@
                 </div>
                 <div class="row">
                   <div class="col-9">
-                    <p v-if="!shipInf.changeDistrict">Укажите область</p>
+                    <p v-if="!shipInf.changeDistrict">{{ !userInfo.userAddress ? "Не указан" : userInfo.userAddress.district ? userInfo.userAddress.district : 'Не указан'}}</p>
                     <input v-else class="form-control" v-model="shipInf.newDistrict">
                   </div>
                   <div class="col-3">
@@ -176,7 +176,7 @@
                 </div>
                 <div class="row">
                   <div class="col-9">
-                    <p v-if="!shipInf.changeCity">Укажите город</p>
+                    <p v-if="!shipInf.changeCity">{{ !userInfo.userAddress ? "Не указан" :  userInfo.userAddress.city ? userInfo.userAddress.city : "Не указан"}}</p>
                     <input v-else class="form-control" v-model="shipInf.newCity">
                   </div>
                   <div class="col-3">
@@ -191,7 +191,7 @@
                 </div>
                 <div class="row">
                   <div class="col-9">
-                    <p v-if="!shipInf.changeStreet">Укажите улицу</p>
+                    <p v-if="!shipInf.changeStreet">{{ !userInfo.userAddress ? "Не указан" : userInfo.userAddress.street ? userInfo.userAddress.street : "Не указан"}}</p>
                     <input v-else class="form-control" v-model="shipInf.newStreet">
                   </div>
                   <div class="col-3">
@@ -210,7 +210,7 @@
                 </div>
                 <div class="row">
                   <div class="col-9">
-                    <p v-if="!shipInf.changeStreetNumber">Укажите номер улицы</p>
+                    <p v-if="!shipInf.changeStreetNumber">{{ !userInfo.userAddress ? "Не указан" : userInfo.userAddress.streetNumber ? userInfo.userAddress.streetNumber: "Не указан"}}</p>
                     <input v-else class="form-control" v-model="shipInf.newStreetNumber">
                   </div>
                   <div class="col-3">
@@ -225,7 +225,7 @@
                 </div>
                 <div class="row">
                   <div class="col-9">
-                    <p v-if="!shipInf.changeApartmentNumber">Укажите номер квартиры</p>
+                    <p v-if="!shipInf.changeApartmentNumber">{{ !userInfo.userAddress ? "Не указан" : userInfo.userAddress.apartmentNumber ? userInfo.userAddress.apartmentNumber: "Не указан"}}</p>
                     <input v-else class="form-control" v-model="shipInf.newApartmentNumber">
                   </div>
                   <div class="col-3">
@@ -244,7 +244,7 @@
                 </div>
                 <div class="row">
                   <div class="col-9">
-                    <p v-if="!shipInf.changeZipCode">Укажите zip code</p>
+                    <p v-if="!shipInf.changeZipCode">{{ !userInfo.userAddress ? "Не указан" :  userInfo.userAddress.zipCode ? userInfo.userAddress.zipCode: "Не указан"}}</p>
                     <input v-else class="form-control" v-model="shipInf.newZipCode">
                   </div>
                   <div class="col-3">
@@ -398,28 +398,65 @@ export default {
     },
 
     getNewStreetNumber(){
-      this.shipInf.newStreet = null
-      this.shipInf.changeStreetNumber = !this.shipInf.changeStreetNumber
+     if(this.userInfo.userAddress){
+       this.shipInf.newStreetNumber = this.userInfo.userAddress.streetNumber
+       this.shipInf.changeStreetNumber = !this.shipInf.changeStreetNumber
+     }
+     else{
+       this.shipInf.newStreetNumber = null
+       this.shipInf.changeStreetNumber = !this.shipInf.changeStreetNumber
+     }
     },
     getNewApartmentNumber(){
-      this.shipInf.newApartmentNumber = null
-      this.shipInf.changeApartmentNumber = !this.shipInf.changeApartmentNumber
+      if(this.userInfo.userAddress) {
+        this.shipInf.newApartmentNumber = this.userInfo.userAddress.apartmentNumber
+        this.shipInf.changeApartmentNumber = !this.shipInf.changeApartmentNumber
+      }
+      else{
+        this.shipInf.newApartmentNumber = null
+        this.shipInf.changeApartmentNumber = !this.shipInf.changeApartmentNumber
+      }
     },
     getNewZipCode(){
-      this.shipInf.newZipCode = null
-      this.shipInf.changeZipCode = !this.shipInf.changeZipCode
+      if(this.userInfo.userAddress) {
+        this.shipInf.newZipCode = this.userInfo.userAddress.zipCode
+        this.shipInf.changeZipCode = !this.shipInf.changeZipCode
+      }
+      else{
+        this.shipInf.newZipCode = null
+        this.shipInf.changeZipCode = !this.shipInf.changeZipCode
+      }
     },
     getNewStreet(){
-      this.shipInf.newStreet = null
-      this.shipInf.changeStreet = !this.shipInf.changeStreet
+      if(this.userInfo.userAddress) {
+        this.shipInf.newStreet = this.userInfo.userAddress.street
+        this.shipInf.changeStreet = !this.shipInf.changeStreet
+      }
+      else{
+        this.shipInf.newStreet = null
+        this.shipInf.changeStreet = !this.shipInf.changeStreet
+      }
     },
     getNewCity(){
-      this.shipInf.newCity = null
-      this.shipInf.changeCity = !this.shipInf.changeCity
+      if(this.userInfo.userAddress) {
+        this.shipInf.newCity = this.userInfo.userAddress.city
+        this.shipInf.changeCity = !this.shipInf.changeCity
+      }
+      else {
+        this.shipInf.newCity = null
+        this.shipInf.changeCity = !this.shipInf.changeCity
+
+      }
     },
     getNewDistrict(){
-      this.shipInf.newDistrict = null
-      this.shipInf.changeDistrict = !this.shipInf.changeDistrict
+      if(this.userInfo.userAddress) {
+        this.shipInf.newDistrict = this.userInfo.userAddress.district
+        this.shipInf.changeDistrict = !this.shipInf.changeDistrict
+      }
+      else{
+        this.shipInf.newDistrict = null
+        this.shipInf.changeDistrict = !this.shipInf.changeDistrict
+      }
     },
 
     POSTUpdate(){
