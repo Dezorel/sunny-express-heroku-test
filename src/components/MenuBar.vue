@@ -28,6 +28,9 @@
         </div>
 
         <p v-if="user.toLowerCase() != 'operator'" class="group" style="margin-top: 32px;">Информация</p>
+        <div>
+          <p class="element">China PostCode: <a href="/instruction">MD-2000TEST</a></p>
+        </div>
         <!--Инструкция-->
         <router-link v-if="user.toLowerCase() != 'operator'" to="/instruction">
           <MenuItem name="Инструкция" imageName="book"></MenuItem>
