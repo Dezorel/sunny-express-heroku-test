@@ -22,8 +22,19 @@
             </div>
           </div>
         </div>
-
       </div>
+
+      <div class="row">
+        <div class="col-md-5 offset-md-4" style="margin-top: 200px">
+          <img src="../assets/china_map.svg" class="w-100">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 offset-md-3 mt-4">
+          <h2>Заказывайте в Китае по адресу: <a href="#" style="color: black">Адресс</a> </h2>
+        </div>
+      </div>
+
       </div>
 
 
@@ -144,22 +155,22 @@ p{
   font-weight: bold;
 }
 .bg-image{
-  padding-bottom: 800px;
+  /*padding-bottom: 800px;*/
   background: url("../assets/instruction-image.svg") no-repeat;
   background-size: cover;
 }
 @media (max-width: 1600px) {
-  .bg-image{
-    padding-bottom: 600px;
-  }
+  /*.bg-image{*/
+  /*  padding-bottom: 600px;*/
+  /*}*/
   .logo-img{
     width: 15%;
   }
 }
 @media (max-width: 1250px) {
-  .bg-image{
-    padding-bottom: 350px;
-  }
+  /*.bg-image{*/
+  /*  padding-bottom: 350px;*/
+  /*}*/
   .logo-img{
     width: 25%;
   }
