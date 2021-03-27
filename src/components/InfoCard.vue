@@ -240,7 +240,7 @@ name: "InfoCard",
     getUserPhoto(){
       if(this.itemPhoto){
         axios
-            .get(getPhotoURL, {
+            .get(getPhotoURL+'?packageRequestId='+this.id, {
               headers: {
                 'Authorization': localStorage.token
               }})
