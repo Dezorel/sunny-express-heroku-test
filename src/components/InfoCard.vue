@@ -258,34 +258,34 @@ const getPhotoURL = 'https://delivery-spring.herokuapp.com/rest/upload/getPackag
 import router from "@/router";
 
 export default {
-name: "InfoCard",
-  props:{
-  itemType: String,
-  Location: String,
-  trackNumber: String,
-  amount: Number,
-  link: String,
-  price: Number,
-  currency: String,
-  status: String,
+  name: "InfoCard",
+  props: {
+    itemType: String,
+    Location: String,
+    trackNumber: String,
+    amount: Number,
+    link: String,
+    price: Number,
+    currency: String,
+    status: String,
 
-  weight: Number,
-  length: Number,
-  width: Number,
-  height: Number,
-  deliveryPrice: Number,
+    weight: Number,
+    length: Number,
+    width: Number,
+    height: Number,
+    deliveryPrice: Number,
 
-  id: Number,
+    id: Number,
 
-  itemCheck: Boolean,
-  itemInsurance: Boolean,
-  itemPhoto: Boolean,
-  itemRepack: Boolean,
-  itemSplit: Boolean,
+    itemCheck: Boolean,
+    itemInsurance: Boolean,
+    itemPhoto: Boolean,
+    itemRepack: Boolean,
+    itemSplit: Boolean,
 
   },
-  data(){
-    return{
+  data() {
+    return {
       sharp: "#",
       accordion: "accordion",
       modal0: 'Modal0',
@@ -293,33 +293,35 @@ name: "InfoCard",
       modal2: 'Modal2',
       modal3: 'Modal3',
 
-      photos:{},
+      photos: {},
       encodePhotos0: '',
       encodePhotos1: '',
       encodePhotos2: '',
       encodePhotos3: '',
     }
   },
-  methods:{
-    deleteTrekk(currentId){
+  methods: {
+    deleteTrekk(currentId) {
       axios
-          .delete(deleteURL+'?id='+currentId, {
+          .delete(deleteURL + '?id=' + currentId, {
             headers: {
               'Authorization': localStorage.token
-            }})
+            }
+          })
           .then(response => {
             console.log(response)
             router.go()
           })
-          .catch(error => console.log("Ошибка! "+error))
+          .catch(error => console.log("Ошибка! " + error))
     },
-    getUserPhoto(){
-      if(this.itemPhoto){
+    getUserPhoto() {
+      if (this.itemPhoto) {
         axios
-            .get(getPhotoURL+'?packageRequestId='+this.id, {
+            .get(getPhotoURL + '?packageRequestId=' + this.id, {
               headers: {
                 'Authorization': localStorage.token
-              }})
+              }
+            })
             .then(response => {
               this.photos = response.data
               this.encodePhotos0 = window.atob(this.photos[0].picByte)
@@ -327,21 +329,22 @@ name: "InfoCard",
               this.encodePhotos2 = window.atob(this.photos[2].picByte)
               this.encodePhotos3 = window.atob(this.photos[3].picByte)
             })
-            .catch(error => console.log("Ошибка! "+error))
+            .catch(error => console.log("Ошибка! " + error))
       }
     },
   },
   created() {
-  this.getUserPhoto()
+    this.getUserPhoto()
   },
-  watch:{
-    trackNumber(){
+  watch: {
+    trackNumber() {
       this.encodePhotos0 = ''
       this.encodePhotos1 = ''
       this.encodePhotos2 = ''
       this.encodePhotos3 = ''
       this.getUserPhoto()
     }
+  }
 }
 </script>
 
