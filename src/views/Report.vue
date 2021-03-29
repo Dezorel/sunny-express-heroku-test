@@ -233,11 +233,18 @@
 
 
             </div>
-            <div class="row">
+            <div v-if="getByTrack.itemPhoto" class="row">
               <div class="col-xl-4 col-lg-5 col-md-7">
-                <a class="btn btn-block btn-yellow mt-2" @click="sendPackage">Сохранить</a>
+                <a class="btn btn-yellow btn-block mt-2" @click=" uploadPhotos">Сохранить фото</a>
               </div>
             </div>
+            
+            <div class="row">
+              <div class="col-xl-4 col-lg-5 col-md-7">
+                <a class="btn btn-block btn-yellow mt-2" @click="sendPackage">Сохранить значения</a>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -287,7 +294,7 @@
 
 import axios from "axios";
 
-const uploadPhotoURL = 'https://delivery-spring.herokuapp.com/rest/upload/uploadPackagePhoto'
+const uploadPhotoURL = 'https://delivery-spring.herokuapp.com/rest/upload/uploadBase64'
 const userInfoURL = 'https://delivery-spring.herokuapp.com/rest/user/userInfo'
 const getInfoByTrackCodeURL = 'https://delivery-spring.herokuapp.com/rest/operator/findByTrackCode'
 const getInfoByRemoteAddressURL = 'https://delivery-spring.herokuapp.com/rest/operator/findByRemoteAddress'
@@ -366,16 +373,15 @@ name: "Report",
   uploadPhotos(){
       if(this.photosUser){
         axios
-            .post(uploadPhotoURL, {"image1": localStorage.img1 , "image2": localStorage.img2,"image3": localStorage.img3 , "image4": localStorage.img4}
-            ,
-                //TODO отправить packageID
+            .post(uploadPhotoURL, {"packageRequestId": this.getByTrack.id, "images":[localStorage.img1 ,localStorage.img2,localStorage.img3 ,localStorage.img4] },
+
                 {
                   headers: {
                     'Authorization': localStorage.token
                   }}
             )
             .then(response => {
-              console.log(response)
+              alert("Успех загрузки фотографий! "+response)
               localStorage.removeItem('img1')
               localStorage.removeItem('img2')
               localStorage.removeItem('img3')
@@ -410,17 +416,17 @@ name: "Report",
         })
   },
   sendPackage(){
-    this.uploadPhotos()
-      axios
-          .post( sendPackageURL, {"weight":this.weight, "height":this.height, "width":this.width, "length":this.length, "packageRequestId":this.getByTrack.id},
-              { headers: {
-              'Authorization': localStorage.token
-            }})
-          .then(response => {
-            console.log(response)
-            alert("Успех")
-            router.go()
-          })
+     if(!this.getByTrack.width || !this.getByTrack.weight || !this.getByTrack.length || !this.getByTrack.height){
+       axios
+           .post( sendPackageURL, {"weight":this.weight, "height":this.height, "width":this.width, "length":this.length, "packageRequestId":this.getByTrack.id},
+               { headers: {
+                   'Authorization': localStorage.token
+                 }})
+           .then(response => {
+             console.log(response)
+             router.go()
+           })
+     }
     },
   sendEmail(){
     axios

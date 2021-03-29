@@ -274,7 +274,7 @@ export default {
                 )
           .then(response => {
             alert('Success! ' + response)
-            router.push({path: '/trekking'})
+            router.push({path: '/tracking'})
           })
           .catch(error => alert("Ошибка! "+error))
 

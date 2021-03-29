@@ -87,96 +87,157 @@
 
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
                     <button
                         class="accordion-button collapsed"
                         type="button"
                         data-mdb-toggle="collapse"
-                        data-mdb-target="#collapseOne"
+                        :data-mdb-target=sharp+accordion+trackNumber
                         aria-expanded="true"
                         aria-controls="collapseOne"
-                    >
-                      All photos
+                      style="color: #000000; font-weight: 500; font-size: 14px;">
+                      Посмотреть все фотографии
                     </button>
-                  </h2>
                   <div
-                      id="collapseOne"
+                      :id=accordion+trackNumber
                       class="accordion-collapse collapse"
-                      aria-labelledby="headingOne"
+                      :aria-labelledby=sharp+accordion+trackNumber
                       data-mdb-parent="#accordionExample"
                   >
-                    <div class="accordion-body">
+                    <div v-if="encodePhotos0 || encodePhotos1 || encodePhotos2 || encodePhotos3" class="accordion-body">
                       <div class="row row-cols-1 row-cols-lg-4 g-4" align="center">
                         <div class="col">
-                          <div class="card photo-card h-100">
+                          <div class="card photo-card h-100 justify-content-center">
                             <img data-mdb-toggle="modal"
-                                 data-mdb-target="#exampleModal"
-                                 src="../assets/logo.svg"
+                                 :data-mdb-target=sharp+modal0+trackNumber
+                                 :src=encodePhotos0
                                  class="card-img-top"/>
+                            <!-- Modal -->
+                            <div class="modal fade" :id=modal0+trackNumber tabindex="-1" aria-labelledby="exampleModalLabel0" aria-hidden="true">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel0">Modal title</h5>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-mdb-dismiss="modal"
+                                        aria-label="Close"
+                                    ></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="container" align="center">
+                                      <img :src=encodePhotos0 style="width: 100%" alt="">
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <div class="col">
-                          <div class="card photo-card h-100">
+                          <div class="card photo-card h-100 justify-content-center">
                             <img data-mdb-toggle="modal"
-                                 data-mdb-target="#exampleModal"
-                                 src="../assets/logo.svg"
+                                 :data-mdb-target=sharp+modal1+trackNumber
+                                 :src=encodePhotos1
                                  class="card-img-top"/>
+                            <!-- Modal -->
+                            <div class="modal fade" :id=modal1+trackNumber tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-mdb-dismiss="modal"
+                                        aria-label="Close"
+                                    ></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="container" align="center">
+                                      <img :src=encodePhotos1 style="width: 100%" alt="">
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <div class="col">
-                          <div class="card photo-card h-100">
+                          <div class="card photo-card h-100 justify-content-center">
                             <img data-mdb-toggle="modal"
-                                 data-mdb-target="#exampleModal"
-                                 src="../assets/logo.svg"
-                                 class="card-img-top"/>
+                                 :data-mdb-target=sharp+modal2+trackNumber
+                                 :src=encodePhotos2
+                                 class="card-img-top" />
+                            <!-- Modal -->
+                            <div class="modal fade" :id=modal2+trackNumber tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-mdb-dismiss="modal"
+                                        aria-label="Close"
+                                    ></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="container" align="center">
+                                      <img :src=encodePhotos2 style="width: 100%" alt="">
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <div class="col">
-                          <div class="card photo-card h-100">
+                          <div class="card photo-card h-100 justify-content-center">
                             <img data-mdb-toggle="modal"
-                                 data-mdb-target="#exampleModal"
-                                 src="../assets/logo.svg"
-                                 class="card-img-top"/>
+                                 :data-mdb-target=sharp+modal3+trackNumber
+                                 :src=encodePhotos3
+                                 class="card-img-top" />
+                            <!-- Modal -->
+                            <div class="modal fade" :id=modal3+trackNumber tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-mdb-dismiss="modal"
+                                        aria-label="Close"
+                                    ></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="container" align="center">
+                                      <img :src=encodePhotos3 style="width: 100%" alt="">
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+
+                   <div v-else style="padding: 0px 20px">
+                      <p style="padding: 10px 0px;color: #000000; font-weight: 500; font-size: 16px;">Фото пока не сделаны :(</p>
+                   </div>
+                    
                   </div>
                 </div>
               </div>
 
 
             </div>
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-mdb-dismiss="modal"
-                        aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="container" align="center">
-                      <img src="../assets/logo.svg" style="width: 100%" alt="">
-<!--                      <img v-if="selectimg4" :src=img4 style="width: 100%" alt="">-->
-<!--                      <img v-if="selectimg3" :src=img3 style="width: 100%" alt="">-->
-<!--                      <img v-if="selectimg2" :src=img2 style="width: 100%" alt="">-->
-<!--                      <img v-if="selectimg1" :src=img1 style="width: 100%" alt="">-->
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-
 
           </div>
           <div class="row">
@@ -221,8 +282,23 @@ name: "InfoCard",
   itemPhoto: Boolean,
   itemRepack: Boolean,
   itemSplit: Boolean,
-  photos:{}
 
+  },
+  data(){
+    return{
+      sharp: "#",
+      accordion: "accordion",
+      modal0: 'Modal0',
+      modal1: 'Modal1',
+      modal2: 'Modal2',
+      modal3: 'Modal3',
+
+      photos:{},
+      encodePhotos0: '',
+      encodePhotos1: '',
+      encodePhotos2: '',
+      encodePhotos3: '',
+    }
   },
   methods:{
     deleteTrekk(currentId){
@@ -246,6 +322,10 @@ name: "InfoCard",
               }})
             .then(response => {
               this.photos = response.data
+              this.encodePhotos0 = window.atob(this.photos[0].picByte)
+              this.encodePhotos1 = window.atob(this.photos[1].picByte)
+              this.encodePhotos2 = window.atob(this.photos[2].picByte)
+              this.encodePhotos3 = window.atob(this.photos[3].picByte)
             })
             .catch(error => console.log("Ошибка! "+error))
       }
@@ -260,7 +340,6 @@ name: "InfoCard",
 <style scoped>
 .photo-card{
   max-width: 400px;
-  background: linear-gradient(327.23deg, #FFED4B 1.75%, rgba(255, 255, 255, 0) 94.17%), #FFDA49;
   border-radius: 8px;
 }
 .row{

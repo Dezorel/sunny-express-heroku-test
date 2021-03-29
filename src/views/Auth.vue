@@ -3,7 +3,7 @@
      <div class="col-lg-7 d-none d-lg-flex align-items-center justify-content-center reg-image">
        <img src="../assets/logo.svg" class="w-25 noselect" style="position: fixed">
      </div>
-     <div class="card col-lg-5 d-flex align-items-center justify-content-center" style="padding-bottom: 128px; padding-top: 102px; padding-left: 24px; background-color: #E5E5E5;" align="center">
+     <div class="card col-lg-5 d-flex align-items-center justify-content-center" style="height: 100vh; padding-top: 30px; padding-left: 12px; background-color: #E5E5E5;" align="center">
 
        <div class="card card-reg" style="padding-top: 24px">
          <div class="col-md">
@@ -58,8 +58,10 @@
 
            </form>
          </div>
-         <div v-if="error" class="col-md-10 mt-5 alert alert-danger" role="alert">
-           Вы ввели неправильные данные для авторизации! Проверьте их и попробуйте снова!
+         <div class="d-flex justify-content-center">
+           <div v-if="error" class="col-md-10 mt-2 alert alert-danger" role="alert" >
+             Вы ввели неправильные данные для авторизации! Проверьте их и попробуйте снова!
+           </div>
          </div>
        </div>
 
