@@ -333,7 +333,15 @@ name: "InfoCard",
   },
   created() {
   this.getUserPhoto()
-  }
+  },
+  watch:{
+    trackNumber(){
+      this.encodePhotos0 = ''
+      this.encodePhotos1 = ''
+      this.encodePhotos2 = ''
+      this.encodePhotos3 = ''
+      this.getUserPhoto()
+    }
 }
 </script>
 
